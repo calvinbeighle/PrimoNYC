@@ -117,7 +117,7 @@
     }
   </style>
   <script>
-    const handleSubmit = (e) => {
+    function handleSubmit(e) {
       e.preventDefault();
       const form = e.target;
       const data = new FormData(form);
@@ -127,6 +127,12 @@
 
       fetch(scriptURL, { method: 'POST', body: data })
         .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response;
+        })
+        .then(() => {
           alert('Success! We look forward to dining with you.');
           form.reset();
         })
