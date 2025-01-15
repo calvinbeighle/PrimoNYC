@@ -123,7 +123,7 @@
       const data = new FormData(form);
       
       // Replace this URL with your Google Apps Script Web App URL
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbzOhNcrtP6WmUjyUF2iY9wVrdYTNqCxUEmxx5PQYj88luWflgzsXeElxAUB2NhErwUg/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyZncRwYBPySKfcaF2jh2pGNM9uKbxeBBc9pomuywPjW7XrGIw8q94EYpO1uaF9vJMW/exec';
 
       fetch(scriptURL, { method: 'POST', body: data })
         .then(response => {
@@ -151,7 +151,9 @@
   </div>
  
   <p style="font-size: 1.20em"><i>Welcome to the Primo Supper Club.</i></p>
-  <p>Enter your information to join our next dinner</p>
+  <br>
+  <br>
+  <p>Enter your information to enjoy our next dinner</p>
 
   <form class="email-form" onsubmit="handleSubmit(event)">
     <input 
