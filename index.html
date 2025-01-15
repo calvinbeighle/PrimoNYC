@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Primo Supper Club</title>
 
   <!-- Google Fonts: Playfair Display (regular) -->
@@ -14,25 +15,33 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 20px;
       background-color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       font-family: 'Avenir', 'Roboto', Arial, sans-serif;
       color: #000;
+      box-sizing: border-box;
     }
     .logo {
       margin-bottom: 20px;
+      width: 100%;
+      max-width: 340px;
+    }
+    .logo img {
+      width: 100%;
+      height: auto;
     }
     p {
-      max-width: 600px;
+      max-width: 100%;
       text-align: center;
-      padding: 0 20px;
+      padding: 0 10px;
       margin-bottom: 15px;
       font-weight: 400;
+      font-size: 16px;
     }
     .email-form {
       display: flex;
@@ -40,9 +49,11 @@
       align-items: center;
       width: 100%;
       max-width: 350px;
+      padding: 0 15px;
+      box-sizing: border-box;
     }
     .email-form input {
-      padding: 10px;
+      padding: 12px;
       font-size: 16px;
       margin-bottom: 15px;
       font-family: 'Avenir', 'Roboto', Arial, sans-serif;
@@ -52,6 +63,7 @@
       text-align: center;
       background-color: #f8f8f8;
       border-radius: 4px;
+      -webkit-appearance: none;
     }
     .email-form input:focus {
       text-align: center;
@@ -59,7 +71,7 @@
       box-shadow: 0 0 3px rgba(0,0,0,0.2);
     }
     .email-form button {
-      padding: 10px 20px;
+      padding: 12px 20px;
       background-color: #000;
       color: #fff;
       border: none;
@@ -67,7 +79,9 @@
       cursor: pointer;
       font-family: 'Avenir', 'Roboto', Arial, sans-serif;
       border-radius: 4px;
-      width: 50%;
+      width: 100%;
+      max-width: 200px;
+      -webkit-appearance: none;
     }
     .email-form button:hover {
       opacity: 0.8;
@@ -85,22 +99,55 @@
     .email-form input:focus::placeholder {
       opacity: 0;
     }
+    @media screen and (max-width: 480px) {
+      body {
+        padding: 15px;
+      }
+      .logo {
+        margin-bottom: 15px;
+      }
+      p {
+        font-size: 14px;
+      }
+      .email-form input,
+      .email-form button {
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
   </style>
+  <script>
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      
+      // Replace this URL with your Google Apps Script Web App URL
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwzzKYIQ5QRSLyHjVYkFJaaZnW59WMZ_JuuZ2Noltq9JSovjidenJq_OcoNQBevEp1O/exec';
+
+      fetch(scriptURL, { method: 'POST', body: data })
+        .then(response => {
+          alert('Success! We look forward to dining with you.');
+          form.reset();
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          alert('There was an error submitting. Please try again.');
+        });
+    }
+  </script>
 </head>
 <body>
 
   <!-- SVG referenced like any image (make sure the path is correct) -->
   <div class="logo">
-    <img src="assets/PrimoNYC.svg" alt="Primo Supper Club Logo" width="340" height="138">
+    <img src="assets/PrimoNYC.svg" alt="Primo Supper Club Logo">
   </div>
  
-  
-  <p style="font-size: 1.20em"><i>Welcome to the Primo Supper Club.</i>
-    <p></p>
-    <p></p>
-  </p> Enter your information to join our next dinner.</p>
+  <p style="font-size: 1.20em"><i>Welcome to the Primo Supper Club.</i></p>
+  <p>Enter your information to join our next dinner</p>
 
-  <form class="email-form" action="#" method="POST">
+  <form class="email-form" onsubmit="handleSubmit(event)">
     <input 
       type="text"
       name="name"
