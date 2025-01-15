@@ -30,10 +30,17 @@
       margin-bottom: 20px;
       width: 100%;
       max-width: 340px;
+      position: relative;
+      aspect-ratio: 3 / 1;
+      background-color: transparent;
     }
     .logo img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: contain;
     }
     p {
       max-width: 100%;
