@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Primo Supper Club</title>
+
+  <!-- Google Fonts: Playfair Display (regular) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="icon" href="assets/PrimoNYC.svg" type="image/svg+xml">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Avenir', 'Roboto', Arial, sans-serif;
+      color: #000;
+    }
+    .logo {
+      margin-bottom: 20px;
+    }
+    p {
+      max-width: 600px;
+      text-align: center;
+      padding: 0 20px;
+      margin-bottom: 15px;
+      font-weight: 400;
+    }
+    .email-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 350px;
+    }
+    .email-form input {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      font-family: 'Avenir', 'Roboto', Arial, sans-serif;
+      outline: none;
+      border: none;
+      width: 100%;
+      text-align: center;
+      background-color: #f8f8f8;
+      border-radius: 4px;
+    }
+    .email-form input:focus {
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    }
+    .email-form button {
+      padding: 10px 20px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      font-family: 'Avenir', 'Roboto', Arial, sans-serif;
+      border-radius: 4px;
+      width: 50%;
+    }
+    .email-form button:hover {
+      opacity: 0.8;
+    }
+    .email-form input::-webkit-input-placeholder {
+      color: #000;
+      text-align: center;
+    }
+    .email-form input:focus::-webkit-input-placeholder {
+      opacity: 0;
+    }
+    .email-form input:focus:-ms-input-placeholder {
+      opacity: 0;
+    }
+    .email-form input:focus::placeholder {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG referenced like any image (make sure the path is correct) -->
+  <div class="logo">
+    <img src="assets/PrimoNYC.svg" alt="Primo Supper Club Logo" width="340" height="138">
+  </div>
+ 
+  
+  <p style="font-size: 1.20em"><i>Welcome to the Primo Supper Club.</i>
+    <p></p>
+  </p> Enter your information to join our next dinner.</p>
+
+  <form class="email-form" action="#" method="POST">
+    <input 
+      type="text"
+      name="name"
+      placeholder="Name"
+      required
+    />
+    <input 
+      type="tel"
+      name="phone"
+      placeholder="Phone Number"
+      required
+    />
+    <input 
+      type="email" 
+      name="email" 
+      placeholder="Email Address" 
+      required
+    />
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
